@@ -47,8 +47,8 @@ public class AppTest {
         assertEquals(200, response.getStatusLine().getStatusCode());
     }
 
-    @Test
-    public void wait_browser() throws Exception {
-        Thread.sleep(Long.MAX_VALUE);
-    }
+//    @Test
+//    public void wait_browser() throws Exception {
+//        Thread.sleep(Long.MAX_VALUE);
+//    }
 }

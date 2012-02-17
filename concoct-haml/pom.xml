@@ -26,4 +26,8 @@
             <version>2.6</version>
         </dependency>
     </dependencies>
+
+    <properties>
+        <maven.test.skip>true</maven.test.skip>
+    </properties>
 </project>
