@@ -12,7 +12,6 @@
     <modules>
         <module>web-server-core</module>
         <module>web-server-spring</module>
-        <module>jhaml</module>
         <module>concoct-haml</module>
     </modules>
 
