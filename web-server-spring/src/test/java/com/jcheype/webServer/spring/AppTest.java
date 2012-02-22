@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import javax.xml.transform.stream.StreamSource;
-
 import static junit.framework.Assert.assertEquals;
 
 /**
@@ -46,9 +44,4 @@ public class AppTest {
         String s = new String(ByteStreams.toByteArray(response.getEntity().getContent()));
         assertEquals(200, response.getStatusLine().getStatusCode());
     }
-
-//    @Test
-//    public void wait_browser() throws Exception {
-//        Thread.sleep(Long.MAX_VALUE);
-//    }
 }

@@ -25,7 +25,7 @@ public class TestPage {
     public Map methodToto(Request request, Response response, String titi, String tutu){
         Map<String, String> map = new HashMap<String, String>();
         map.put("titi",Long.toString(rand.nextLong()));
-        map.put("tutu","lol");
+        map.put("tutu",tutu);
         map.put("layout", "test.haml");
         return map;
     }
