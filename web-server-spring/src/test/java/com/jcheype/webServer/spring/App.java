@@ -16,6 +16,7 @@ public class App {
         ap = new ClassPathXmlApplicationContext(configs);
         SpringWebServer springWebServer = ap.getBean(SpringWebServer.class);
         logger.debug("STARTING");
+        springWebServer.setPort(9999);
         springWebServer.start();
     }
 
