@@ -44,4 +44,10 @@ public class AppTest {
         String s = new String(ByteStreams.toByteArray(response.getEntity().getContent()));
         assertEquals(200, response.getStatusLine().getStatusCode());
     }
+
+
+    @Test
+    public void waitLong() throws InterruptedException {
+        Thread.sleep(Long.MAX_VALUE);
+    }
 }

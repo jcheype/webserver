@@ -12,7 +12,7 @@
     <modules>
         <module>web-server-core</module>
         <module>web-server-spring</module>
-        <module>concoct-haml</module>
+        <!--<module>concoct-haml</module>-->
     </modules>
 
     <build>

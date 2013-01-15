@@ -1,19 +1,17 @@
 package com.jcheype.webServer;
 
-import com.thoughtworks.xstream.XStream;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.jboss.netty.buffer.ChannelBuffer;
-import org.jboss.netty.buffer.ChannelBufferOutputStream;
 import org.jboss.netty.buffer.ChannelBuffers;
 import org.jboss.netty.channel.ChannelFuture;
 import org.jboss.netty.channel.ChannelFutureListener;
 import org.jboss.netty.channel.ChannelHandlerContext;
-import org.jboss.netty.handler.codec.http.*;
+import org.jboss.netty.handler.codec.http.DefaultHttpResponse;
+import org.jboss.netty.handler.codec.http.HttpHeaders;
+import org.jboss.netty.handler.codec.http.HttpRequest;
+import org.jboss.netty.handler.codec.http.HttpResponse;
 import org.jboss.netty.util.CharsetUtil;
 
-import java.io.IOException;
 import java.nio.charset.Charset;
-import java.util.List;
 
 import static org.jboss.netty.handler.codec.http.HttpHeaders.isKeepAlive;
 import static org.jboss.netty.handler.codec.http.HttpHeaders.setContentLength;
@@ -26,8 +24,8 @@ import static org.jboss.netty.handler.codec.http.HttpVersion.HTTP_1_1;
  * Date: 10/24/11
  */
 public class Response {
-    private final static ObjectMapper mapper = new ObjectMapper();
-    private final static XStream xstreamXML = new XStream();
+//    private final static ObjectMapper mapper = new ObjectMapper();
+//    private final static XStream xstreamXML = new XStream();
 
     public final ChannelHandlerContext ctx;
     public final HttpRequest request;
@@ -82,28 +80,28 @@ public class Response {
         }
     }
 
-    public void writeJSON(Object object) throws IOException {
-        ChannelBuffer channelBuffer = ChannelBuffers.dynamicBuffer();
-        ChannelBufferOutputStream outputStream = new ChannelBufferOutputStream(channelBuffer);
-
-        //manage jsonp
-        List<String> callback = new QueryStringDecoder(request.getUri()).getParameters().get("callback");
-        if(callback != null && !callback.isEmpty()){
-            outputStream.writeBytes(callback.get(0)+"(");
-            mapper.writeValue(outputStream, object);
-            outputStream.writeBytes(")");
-        }
-        else{
-            mapper.writeValue(outputStream, object);
-        }
-        outputStream.close();
-        write(channelBuffer);
-    }
-
-    public void writeXML(Object object) {
-        ChannelBuffer channelBuffer = ChannelBuffers.dynamicBuffer();
-        ChannelBufferOutputStream outputStream = new ChannelBufferOutputStream(channelBuffer);
-        xstreamXML.toXML(object, outputStream);
-        write(channelBuffer);
-    }
+//    public void writeJSON(Object object) throws IOException {
+//        ChannelBuffer channelBuffer = ChannelBuffers.dynamicBuffer();
+//        ChannelBufferOutputStream outputStream = new ChannelBufferOutputStream(channelBuffer);
+//
+//        //manage jsonp
+//        List<String> callback = new QueryStringDecoder(request.getUri()).getParameters().get("callback");
+//        if(callback != null && !callback.isEmpty()){
+//            outputStream.writeBytes(callback.get(0)+"(");
+//            mapper.writeValue(outputStream, object);
+//            outputStream.writeBytes(")");
+//        }
+//        else{
+//            mapper.writeValue(outputStream, object);
+//        }
+//        outputStream.close();
+//        write(channelBuffer);
+//    }
+//
+//    public void writeXML(Object object) {
+//        ChannelBuffer channelBuffer = ChannelBuffers.dynamicBuffer();
+//        ChannelBufferOutputStream outputStream = new ChannelBufferOutputStream(channelBuffer);
+//        xstreamXML.toXML(object, outputStream);
+//        write(channelBuffer);
+//    }
 }
