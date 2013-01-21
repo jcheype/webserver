@@ -40,7 +40,7 @@ public class WebServerPipelinefactory implements ChannelPipelineFactory {
         pipeline.addLast("timeout", new IdleStateHandler(timer, 0, 0, 20));
 
         pipeline.addLast("decoder", new HttpRequestDecoder());
-        pipeline.addLast("aggregator", new HttpChunkAggregator(1048576));
+        pipeline.addLast("aggregator", new HttpChunkAggregator(1048576*10));
 
         pipeline.addLast("encoder", new HttpResponseEncoder());
         pipeline.addLast("chunkedWriter", new ChunkedWriteHandler());
