@@ -14,4 +14,5 @@ public interface RestHandler {
     public static final HttpMethod afterFilter = new HttpMethod("AFTER_FILTER");
 
     List<Route> getRouteList(HttpMethod method);
+    void add(RestHandler handler);
 }

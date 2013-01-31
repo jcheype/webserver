@@ -57,4 +57,14 @@ public class SimpleRestHandler implements RestHandler {
         }
         return routeList;
     }
+
+    public void add(RestHandler handler){
+        getRouteList(HttpMethod.GET).addAll(handler.getRouteList(HttpMethod.GET));
+        getRouteList(HttpMethod.POST).addAll(handler.getRouteList(HttpMethod.POST));
+        getRouteList(HttpMethod.PUT).addAll(handler.getRouteList(HttpMethod.PUT));
+        getRouteList(HttpMethod.DELETE).addAll(handler.getRouteList(HttpMethod.DELETE));
+        getRouteList(beforeFilter).addAll(handler.getRouteList(beforeFilter));
+        getRouteList(afterFilter).addAll(handler.getRouteList(afterFilter));
+
+    }
 }
