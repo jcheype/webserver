@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                               http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jcheype</groupId>
+    <artifactId>web-server</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>web-server</name>
+
+    <modules>
+        <module>web-server-core</module>
+        <module>web-server-spring</module>
+        <module>web-server-core-scala</module>
+        <!--<module>concoct-haml</module>-->
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>repo</id>
+            <url>https://raw.github.com/jcheype/webserver/master/mvn-repo/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshot-repo</id>
+            <url>https://raw.github.com/jcheype/webserver/master/mvn-repo/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>
